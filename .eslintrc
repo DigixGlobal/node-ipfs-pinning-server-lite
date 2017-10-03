@@ -1,0 +1,9 @@
+{
+  "extends": "eslint-config-airbnb",
+  "rules": {
+    "react/prefer-stateless-function": [0],
+    "max-len": [0],
+    "arrow-body-style": [0],
+    "no-underscore-dangle": [0]
+  }
+}

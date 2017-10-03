@@ -1,0 +1,36 @@
+{
+  "name": "@digix/ipfs-pinner-lite",
+  "version": "0.0.1",
+  "description": "Service for IPFS pinning",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/index.js --exec babel-node --ignore 'db.json'",
+    "test": "mocha --compilers js:babel-register",
+    "daemon": "pm2 start ./src/index.js --interpreter babel-node --name ipfs-pinner",
+    "daemon:stop": "pm2 stop ipfs-pinner"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.0.1",
+    "mocha": "^4.0.0",
+    "nodemon": "^1.12.1",
+    "pm2": "^2.7.1"
+  },
+  "dependencies": {
+    "awaiting": "^3.0.0",
+    "ethereumjs-util": "^5.1.2",
+    "ipfs-api": "^14.3.5",
+    "koa": "^2.3.0",
+    "koa-body": "^2.5.0",
+    "lowdb": "^1.0.0"
+  }
+}
