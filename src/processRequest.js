@@ -12,11 +12,9 @@ const allowedAddresses = {
 
 function getAddressFromSignature({ signature, ipfsHash, timestamp }) {
   const sanitized = util.addHexPrefix(signature);
-  const hash = util.sha3(`${ipfsHash}${timestamp}`);
-  const prefix = new Buffer('\x19Ethereum Signed Message:\n');
-  const prefixedMsg = util.sha3(Buffer.concat([prefix, new Buffer(String(hash.length)), hash]));
   const { r, s, v } = util.fromRpcSig(sanitized);
-  const recovery = util.ecrecover(prefixedMsg, v, r, s);
+  const message = util.hashPersonalMessage(util.sha3(`${ipfsHash}${timestamp}`));
+  const recovery = util.ecrecover(message, v, r, s);
   const address = util.addHexPrefix(util.publicToAddress(recovery).toString('hex'));
   return address;
 }
