@@ -6,6 +6,9 @@ import processRequest from './processRequest';
 
 export default function initilize() {
   const app = new Koa();
+
+  app.proxy = true;
+
   app.use(koaBody());
 
   app.use(async (ctx, next) => {
